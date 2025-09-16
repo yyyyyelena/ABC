@@ -10,7 +10,12 @@ const portHTTPS = portHTTP+1; // port for https
 
 // returning to the client anything that is
 // inside the public folder
-app.use(express.static('public')); 
+app.use(express.static('public'));
+
+
+// to unpack json
+const bodyParser = require('body-parser')//add this
+app.use(bodyParser.json())
 
 
 // Creating object of key and certificate
@@ -21,17 +26,26 @@ const options = {
 };
 
 
+// additional server endpoints could be made here:
 
-// Creating servers and make them listen at their ports:
+app.post('/xyz', (req, res) => {
+  res.status(200).end();
+});
+
+app.get('/zyx', (req, res) => {
+  res.status(200).end();
+});
+
+
+// Creating https server by passing
+// options and app object
 http.createServer(app).listen(portHTTP, function (req, res) {
     console.log("HTTP Server started at port", portHTTP);
 });
-//  listen on a different port
-
 https.createServer(options, app).listen(portHTTPS, function (req, res) {
     console.log("HTTPS Server started at port", portHTTPS);
 });
-// give the server different keys
+
 
 
 
