@@ -102,10 +102,7 @@ function windowResized(){
 }
 
 function handleOrientation(eventData){
-  document.querySelector('#requestOrientationButton').style.display = "none";
-
-  // console.log(eventData.alpha, eventData.beta, eventData.gamma);
-  
+  document.querySelector('#requestOrientationButton').style.display = "none";  
   alpha = eventData.alpha;
   beta = eventData.beta;
   gamma = eventData.gamma;
