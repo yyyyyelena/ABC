@@ -25,14 +25,14 @@ function newMessagesSubmitted(event){
   msgInput.value = "";
 }
 
-function newUserSubmitted(event){
+function newUserSubmitted(userEvent){
 
   //to print the message and stop form element from refreshing the page
-  event.preventDefault();
+  userEvent.preventDefault();
 
   let newUser = userInput.value;
  
-  appendMessage(newUser);
+  appendUser(newUser);
   socket.emit("user",newUser);
 
   newUser.value = "";
@@ -41,7 +41,6 @@ function newUserSubmitted(event){
 function appendMessage(txt) {
   let chatThreadList = document.querySelector("#threadWrapper ul");
   console.log(chatThreadList);
-  // create new list item (li) (li is a single item in the list)
   let newListItem = document.createElement("li")
   newListItem.innerText = txt;
   //append new li to the list
