@@ -1,3 +1,6 @@
+//initialize socket connection
+const socket = io();
+
 let formEle = document.querySelector("#chatForm");
 console.log(formEle)
 let msgInput = document.querySelector("#newMessage");
@@ -11,8 +14,14 @@ function newMessagesSubmitted(event){
   event.preventDefault();
   let newMsg = msgInput.value;
   console.log(newMsg);
-  //actually we need to send the new message to the server first
+  //actually we need to send 
+  //the new message to the server first
   appendMessage(newMsg);//just for fun
+  socket.emit("message",newMsg);
+  //sending the message to the server 
+  //via socket connection
+
+
   //clear out the input in the textbox
   msgInput.value = "";
 }

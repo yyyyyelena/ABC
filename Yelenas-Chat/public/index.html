@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+
+  <link rel="manifest" href="manifest.json" />
+
+  <title>Simple Chat</title>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+
+  <!-- <script src="lib/p5.js"></script> -->
+  <!-- <script src="lib/p5.sound.js"></script> -->
+
+  <!-- include socket.io library: -->
+  <script src="/socket.io/socket.io.js"></script>
+
+
+</head>
+
+<body>
+
+  <div class="main-wrapper">
+
+    <div class="messageSpace">
+      <div id="userWrapper">
+        <ul id="userList">
+          <li><span class="who">Yelena:</span></li>
+          <li><span class="who">Isabella:</span></li>
+        </ul>
+      </div>
+
+      <div id="threadWrapper">
+        <ul id="messageList">
+          <li><span class="words">🍰+🍋‍🟩?</span></li>
+          <li><span class="words">😍</span></li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="chatSpace">
+      <div>
+      <!-- this place is for updating user names -->
+        <form id="newUser">
+          <input type="text" id="newUserName" placeholder="Your Name" autocomplete="off" />
+        </form>
+        <!-- this place is for updating messages -->
+        <form id = "chatForm">
+          <input id="newMessage" placeholder="Type something" autocomplete="off" />
+          <button type="submit">Send</button>
+        </form>
+      </div>
+
+  </div>
+
+
+
+  <!-- the script tag below should always be at the bottom, right before the closing body tag -->
+  <script src="script.js"></script>
+</body>
+
+</html>
