@@ -23,8 +23,8 @@ const HTTPSserver = https.createServer(options, app);
 const { Server } = require('socket.io') // include lib
 const io = new Server(HTTPSserver) // start socket io
 
-HTTPSserver.listen(portHTTPS,function(req,res){
-  console.log("HTTPS server started at the port",portHTTPS);
+HTTPSserver.listen(portHTTPS, function (req, res) {
+  console.log("HTTPS server started at the port", portHTTPS);
 })
 
 
@@ -40,44 +40,52 @@ app.get('/zyx', (req, res) => {
 });
 
 
+let userCount = 0;
+
+
+
 io.on('connection', (socket) => {
   console.log('a user connected', socket.id);
+  userCount++;
 
-  socket.on("message-from-client", function(data){
+  io.emit("user-count", userCount);
+
+
+  //server listen from THE client, and message to other Clients
+  socket.broadcast.emit("message-from-server", {
+    sender: "Server",
+    msg: `A user has entered the chat.`
+  });
+
+
+  //server listen from THE client
+  socket.on("message-from-client", function (data) {
     console.log(data);
 
+    // server send out to clientS
     io.emit("message-from-server", data);
 
   })
 
 
-  // socket.on("message", function (incomingMessage) {
-  //   console.log("got new msg:", incomingMessage)
-
-  //   let messageToAllClients = {
-  //     sender: "unknown",
-  //     message: "incomingMessage"
-  //   }
-  //   io.emit("newMsg", messageToAllClients);
-  // })
-
-  // socket.on("user",function (incomingUser){
-  //   console.log("got new uswer:",incomingUser)
-
-  //   let messageToAllClients = {
-  //     sender: "unknown",
-  //     message: "incomingUser"
-  //   }
-  //   io.emit("newUser",messageToAllClients);
-
-  // })
-
-
-
+// user disconnect
   socket.on("disconnect", () => {
     console.log('a user disconnect', socket.id);
+    userCount--;
+
+
+    io.emit("user-count", userCount);
+
+    socket.broadcast.emit("message-from-server", {
+    sender: "Server",
+    msg: `A user has left the chat.`
+  });
+
+  
+  
   })
 
+  
 })
 
 
