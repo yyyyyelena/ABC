@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background: #000;
+  background: #373737;
   font-family: "Segoe UI", system-ui, sans-serif;
   color: #fff;
 }
@@ -23,7 +23,7 @@ body {
 
 #threadWrapper {
   flex: 1;
-  background: #0d0d0d;
+  background: #505a5a;
   border-radius: 12px;
   padding: 12px;
   display: flex;
@@ -49,15 +49,15 @@ body {
   font-size: 0.95rem;
   color: #fff;
   line-height: 1.3;
-  background: #46865d; 
+  background-color: #466552; 
   /* box-shadow: 0 2px 6px rgba(0,0,0,0.3); */
 }
 
 .my-message {
   align-self: flex-end;
-  color: #c2ebed;
+  color: #93ffab;
   border-radius: 30px;
-  background: hsl(233, 22%, 31%); 
+  background-color: hsl(232, 38%, 80%); 
   text-align: right;
 }
 

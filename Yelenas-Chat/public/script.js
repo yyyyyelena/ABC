@@ -76,6 +76,10 @@ function appendMessage(data) {
   msgSpan.classList.add("words");
   // msgSpan.innerText = data.msg;
 
+    if (data.sender === userInput.value) {
+    newUserAndMessage.classList.add("my-message");
+    }
+
   // broadcast clients' entrance or exit
   if (data.sender === "Server") {
     userSpan.innerText = "";
@@ -83,9 +87,6 @@ function appendMessage(data) {
     msgSpan.style.fontStyle = "italic";
     msgSpan.style.color = "gray";
   } else {
-    if (data.sender === userInput.value) {
-    newUserAndMessage.classList.add("my-message");
-    }
     userSpan.innerText = data.sender + ":"
     msgSpan.innerText =  data.msg;
   }
