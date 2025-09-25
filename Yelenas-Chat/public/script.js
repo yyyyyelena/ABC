@@ -39,8 +39,9 @@ socket.on("message-from-server", function (data) {
 
 const userCountSpan = document.querySelector("#userCount");
 
-socket.on("update-user-count",(count)=>{
-  document.getElementById("userCount").innerText = count;
+socket.on("user-count",(userCount)=>{
+  console.log("got user count:", userCount);
+userCountSpan.innerText = userCount;
 })
 
 
@@ -82,8 +83,11 @@ function appendMessage(data) {
     msgSpan.style.fontStyle = "italic";
     msgSpan.style.color = "gray";
   } else {
-    userSpan.innerText = data.sender;
-    msgSpan.innerText = ": " + data.msg;
+    if (data.sender === userInput.value) {
+    newUserAndMessage.classList.add("my-message");
+    }
+    userSpan.innerText = data.sender + ":"
+    msgSpan.innerText =  data.msg;
   }
 
 

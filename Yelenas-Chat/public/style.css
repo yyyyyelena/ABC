@@ -1,125 +1,105 @@
 body {
-    margin: 0;
-    overflow: hidden;
+  margin: 0;
+  background: #000;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  color: #fff;
 }
 
 .main-wrapper {
-    width: 100%;
-    height: 100dvh;
-    /* the width of a browser is easy to measure but the height is difficult */
-    /* the 'd' refers to dynamic */
-    background-color: rgb(126, 208, 255);
-    display: flex;
-    flex-direction: column;
-    /* align-content: stretch; */
-    justify-content: space-between;
-    padding: 10px 5px;
-    /* padding-bottom: 15px; */
-    box-sizing: border-box;
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .messageSpace {
-    display: flex;
-    height: 100dvh;
-}
-
-#userWrapper {
-    flex: 1;
+  display: flex;
+  height: 100%;
+  gap: 12px;
 }
 
 #threadWrapper {
-    flex: 3;
+  flex: 1;
+  background: #0d0d0d;
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
 }
 
-#threadWrapper,
-#userWrapper {
-    background-color: rgb(120, 216, 210);
-    /* flex-grow: 1; */
-    margin: 15px 0px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    overflow: hidden;
+#threadWrapper ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
 }
 
-#threadWrapper ul, #userWrapper ul {
-    list-style: none;
-    /* margin:0; */
-    padding: 10px;
 
-    /* outline: 1px black dotted; */
-    overflow: scroll;
-
-
+#threadWrapper li {
+  max-width: 95%;
+  margin: 6px 0;
+  padding: 10px 14px;
+  border-radius: 18px;
+  word-wrap: break-word;
+  font-size: 0.95rem;
+  color: #fff;
+  line-height: 1.3;
+  background: #46865d; 
+  /* box-shadow: 0 2px 6px rgba(0,0,0,0.3); */
 }
 
-#threadWrapper li , #userWrapper li{
-    /* background-color: blanchedalmond; */
-    margin-top: 5px;
-    padding: 5px 2px;
-    /* display: inline-block; */
+.my-message {
+  align-self: flex-end;
+  color: #c2ebed;
+  border-radius: 30px;
+  background: hsl(233, 22%, 31%); 
+  text-align: right;
 }
 
+/* Sender name */
 .who {
-    background-color: rgb(251, 251, 252);
-    margin-right: 3px;
-    font-style: italic;
-
+  display: block;
+  font-size: 0.8rem;
+  font-style: italic;
+  opacity: 0.8;
+  margin-bottom: 2px;
+  border-radius: 18px;
 }
-
-.word{
-    background-color: rgb(205, 255, 211);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-
-#threadWrapper li:nth-child(even) {
-    background-color: rgb(193, 251, 239);
-}
-
-/* .words{
-    background-color: blanchedalmond;
-} */
 
 #chatForm {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  background: #8f7171;
+  border-radius: 12px;
+  margin-top: 10px;
 }
 
 #chatForm input {
-    flex-grow: 1;
-    height: 20px;
+  flex-grow: 1;
+  height: 34px;
+  border-radius: 18px;
+  border: none;
+  padding: 0 12px;
+  font-size: 0.9rem;
+  outline: none;
 }
 
-#nameWrapper input {
-    /* width: 100%; */
-    height: 20px;
-    /* box-sizing: border-box; */
+#chatForm button {
+  background: #4a6755;
+  color: #fff;
+  border: none;
+  border-radius: 18px;
+  padding: 0 16px;
+  cursor: pointer;
+  transition: background 0.2s;
 }
-
-#nameWrapper p {
-    display: inline;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
-}
-
-
-/* Style - wrapper */
-.user-count-title {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #333;
-  text-align: center;
-  background: #f5f5f5;
-  padding: 8px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-/* Style -  number */
-#userCount {
-  color: #2d89ef;   
-  font-size: 1.5rem;
-  font-weight: bold;
+#chatForm button:hover { 
+/* change color when i click on it */
+  background: #2ca899;
 }
