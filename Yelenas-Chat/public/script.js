@@ -1,4 +1,4 @@
-const socket = io();
+const socket = io("yelena/port-4290");
 
 // let userEle = document.querySelector("#newUser");
 let userInput = document.querySelector("#newUserName");
