@@ -1,4 +1,6 @@
-const socket = io("yelena/port-4290");
+// const socket = io();
+const prefix = location.pathname.replace(/\/$/, '');      
+const socket = io({ path: prefix + '/socket.io' });
 
 // let userEle = document.querySelector("#newUser");
 let userInput = document.querySelector("#newUserName");
