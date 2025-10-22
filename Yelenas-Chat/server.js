@@ -30,7 +30,6 @@ HTTPSserver.listen(portHTTPS, function (req, res) {
 
 
 // additional server endpoints could be made here:
-
 app.post('/xyz', (req, res) => {
   res.status(200).end();
 });
@@ -80,12 +79,7 @@ io.on('connection', (socket) => {
     sender: "Server",
     msg: `A user has left the chat.`
   });
-
-  
-  
-  })
-
-  
+  })  
 })
 
 
