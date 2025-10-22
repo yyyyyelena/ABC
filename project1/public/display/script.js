@@ -6,13 +6,29 @@
 // const socket = io({ path: base + '/socket.io' });  
 // yields '/leon/port-4100/socket.io' or '/socket.io'
 // the conductor is connected to the socket in the very beginning
-let socket = io({ port:'/yelena/port-4290/socket.io' }); 
+// let base = '/yelena/port-4290'
+// let socket = io({ port:base + '/socket.io' }); 
 
 
 // const prefix = location.pathname.replace(/\/$/, '');      
 // const socket = io({ path: prefix + '/socket.io' });
 
+const CUT = 1;
+const parts = location.pathname.replace(/\/+$/,'').split('/').filter(Boolean);
+console.log(parts)
+// const base  = parts.length ? '/' + parts.slice(0, -CUT).join('/') : ''; // on SERVER...
+// const base  = parts.length ? parts.slice(0, -CUT).join('/') : ''; // on LOCAL...
+// console.log(base);
 
+let importantParts = []
+for(p of parts){
+    importantParts.push(p);
+    if(p.startsWith("port-")){
+        break
+    }
+}
+
+const socket = io({ path: "/"+importantParts.join("/") + '/socket.io' });
 
 // let socket = io();
 socket.emit("my-role", { role: "displayer" });
