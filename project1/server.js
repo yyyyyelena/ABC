@@ -1,30 +1,31 @@
 const express = require('express');
 
-const https = require('https');
-const fs = require("fs")
+const https = require("https");
+// to read certificates from the filesystem (fs)
+const fs = require("fs");
 
-const app = express();
+const app = express(); // the server "app", the server behaviour
 const portHTTPS = 4290; // port for https
 
+// returning to the client anything that is
+// inside the public folder
 app.use(express.static('public'));
 
-// to unpack json
-const bodyParser = require('body-parser')
-app.use(bodyParser.json())
 
+// Creating object of key and certificate
+// for SSL
 const options = {
-  key: fs.readFileSync("keys-for-local-https/localhost-key.pem"),
-  cert: fs.readFileSync("keys-for-local-https/localhost.pem"),
+    key: fs.readFileSync("keys-for-local-https/localhost-key.pem"),
+    cert: fs.readFileSync("keys-for-local-https/localhost.pem"),
 };
-const HTTPSserver = https.createServer(options, app);
 
-const { Server } = require('socket.io') // include lib
-const io = new Server(HTTPSserver) // start socket io
+let HTTPSserver = https.createServer(options, app)
 
-// ask what is this for
-HTTPSserver.listen(portHTTPS, function (req, res) {
-  console.log("HTTPS server started at the port", portHTTPS);
-})
+
+const { Server } = require('socket.io'); // include library
+const io = new Server(HTTPSserver); // start socket io 
+
+
 
 let users = {}; // { socket.id: { x, y, beta } }
 let ball = { x: 0, y: 0, vx: 4, vy: 2 };
