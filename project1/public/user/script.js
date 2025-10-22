@@ -1,10 +1,11 @@
-const CUT = 1;
-const parts = location.pathname.replace(/\/+$/,'').split('/').filter(Boolean);
-// const base  = parts.length ? '/' + parts.slice(0, -CUT).join('/') : ''; // on SERVER...
-const base  = parts.length ? parts.slice(0, -CUT).join('/') : '';
-console.log(base);
+// const CUT = 1;
+// const parts = location.pathname.replace(/\/+$/,'').split('/').filter(Boolean);
+// // const base  = parts.length ? '/' + parts.slice(0, -CUT).join('/') : ''; // on SERVER...
+// const base  = parts.length ? parts.slice(0, -CUT).join('/') : '';
+// console.log(base);
+// let base = “/yelena/port-4290“
 
-let socket = io({ path: base + '/socket.io' }); 
+let socket = io({ port:'/yelena/port-4290/socket.io' }); 
 
 
 
