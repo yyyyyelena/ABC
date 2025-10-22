@@ -1,15 +1,15 @@
-// const CUT = 1;
-// const parts = location.pathname.replace(/\/+$/,'').split('/').filter(Boolean);
-// // const base  = parts.length ? '/' + parts.slice(0, -CUT).join('/') : ''; // on SERVER...
-// const base  = parts.length ? parts.slice(0, -CUT).join('/') : '';
-// console.log(base);
-// const socket = io({ path: base + '/socket.io' });  
+const CUT = 1;
+const parts = location.pathname.replace(/\/+$/,'').split('/').filter(Boolean);
+// const base  = parts.length ? '/' + parts.slice(0, -CUT).join('/') : ''; // on SERVER...
+const base  = parts.length ? parts.slice(0, -CUT).join('/') : '';
+console.log(base);
+const socket = io({ path: base + '/socket.io' });  
 // yields '/leon/port-4100/socket.io' or '/socket.io'
 // the conductor is connected to the socket in the very beginning
 
 
-const prefix = location.pathname.replace(/\/$/, '');      
-const socket = io({ path: prefix + '/socket.io' });
+// const prefix = location.pathname.replace(/\/$/, '');      
+// const socket = io({ path: prefix + '/socket.io' });
 
 
 

@@ -1,15 +1,15 @@
-// const CUT = 1;
-// const parts = location.pathname.replace(/\/+$/,'').split('/').filter(Boolean);
-// // const base  = parts.length ? '/' + parts.slice(0, -CUT).join('/') : ''; // on SERVER...
-// const base  = parts.length ? parts.slice(0, -CUT).join('/') : '';
-// console.log(base);
+const CUT = 1;
+const parts = location.pathname.replace(/\/+$/,'').split('/').filter(Boolean);
+// const base  = parts.length ? '/' + parts.slice(0, -CUT).join('/') : ''; // on SERVER...
+const base  = parts.length ? parts.slice(0, -CUT).join('/') : '';
+console.log(base);
 
-// let socket = io({ path: base + '/socket.io' }); 
+let socket = io({ path: base + '/socket.io' }); 
 
 
 
-const prefix = location.pathname.replace(/\/$/, '');      
-const socket = io({ path: prefix + '/socket.io' });
+// const prefix = location.pathname.replace(/\/$/, '');      
+// const socket = io({ path: prefix + '/socket.io' });
 
 socket.emit("my-role", { role: "user" });
 let touchesLoc =[]
