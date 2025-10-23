@@ -102,3 +102,8 @@ io.on("connection", (socket) => { //socekt connection
   });
 });
 
+
+
+HTTPSserver.listen(portHTTPS,function(req,res){
+  console.log("HTTPS Server started at port", portHTTPS);
+})
