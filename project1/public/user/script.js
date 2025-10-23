@@ -47,7 +47,7 @@ requestOrientationButton.addEventListener("click", () => {
 
 
 function handleOrientation(event) {
-  const beta = event.gamma;
+  const beta = event.beta;
   socket.emit("gyroUpdate", { beta });
 }
 

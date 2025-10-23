@@ -274,8 +274,9 @@ function drawBasket() {
     ball.vx = 0;
     ball.vy = 0;
     setTimeout(makeBasket, 700);
-    setTimeout(() => { ball.vx = random(-1, 1); }, 1000);
-    setTimeout(() => { ball.vy = 2; }, 1000);
+    setTimeout(resetBall, 700);  
+    // setTimeout(() => { ball.vx = random(-1, 1); }, 1000);
+    // setTimeout(() => { ball.vy = 2; }, 1000);
 
   }
 
