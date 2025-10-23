@@ -41,7 +41,7 @@ let margin = 100;
 let basketSize = 70;
 let radius = 8;
 let baseHalf = 50; //control the length of the baseline
-let gravity = 0.001;
+let gravity = 0.01;
 let scored = false; 
 // let gameStarted = false;
 let halfW
@@ -206,7 +206,7 @@ function handleBaseCollision() {
   let diff = createVector(ball.x - closest.x, ball.y - closest.y);
   let dist = diff.mag();
 
-  if (dist < radius && dist > 0.001) {
+  if (dist < radius && dist > 0.001) { //collide
     let normal = diff.copy().normalize();
     let vDotN = ball.vx * normal.x + ball.vy * normal.y;
     if (vDotN < 0) {
