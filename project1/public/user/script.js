@@ -13,6 +13,8 @@ for(p of parts){
     }
 }
 
+console.log("/"+importantParts.join("/") + '/socket.io')
+
 const socket = io({ path: "/"+importantParts.join("/") + '/socket.io' });
 
 // let base = '/yelena/port-4290'

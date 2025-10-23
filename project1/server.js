@@ -19,12 +19,10 @@ const options = {
     cert: fs.readFileSync("keys-for-local-https/localhost.pem"),
 };
 
-let HTTPSserver = https.createServer(options, app)
+const HTTPSserver = https.createServer(options, app);
 
-
-const { Server } = require('socket.io'); // include library
-const io = new Server(HTTPSserver); // start socket io 
-
+const { Server } = require('socket.io'); //include library
+const io = new Server(HTTPSserver); //start socket io
 
 
 let users = {}; // { socket.id: { x, y, beta } }
@@ -40,6 +38,11 @@ let colors = [
 let colorIndex = 0;
 
 
+function getNextColor() {
+  let color = colors[colorIndex];
+  colorIndex = (colorIndex + 1) % colors.length;
+  return color;
+}
 
 io.on("connection", (socket) => { //socekt connection
   console.log("Connected:", socket.id);
@@ -72,6 +75,7 @@ io.on("connection", (socket) => { //socekt connection
     if (!users[socket.id]) return;
       if (!users[socket.id].baselines) users[socket.id].baselines = [];
       users[socket.id].baselines.push(data);
+      console.log("placed")
   io.emit("userUpdate", { users });
   });
 
@@ -98,8 +102,3 @@ io.on("connection", (socket) => { //socekt connection
   });
 });
 
-function getNextColor() {
-  let color = colors[colorIndex];
-  colorIndex = (colorIndex + 1) % colors.length;
-  return color;
-}
