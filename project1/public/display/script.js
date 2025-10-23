@@ -118,7 +118,7 @@ function drawBall() {
 function resetBall() {
   ball.x = random(-width / 2 + radius, width / 2 - radius);
   ball.y = -height / 2 + radius * 3; 
-  ball.vx = random(-3, 3); 
+  ball.vx = random(-1, 1); 
   ball.vy = 2;             
 }
 
@@ -242,8 +242,12 @@ function makeBasket() {
   // let minY = height / 4;
   // let maxY = halfH - margin;
 
-  basket.x = random(-halfW + basketSize/2, halfW-basketSize/2);
-  basket.y = random(0 + margin, halfH - margin);
+  // basket.x = random(-halfW + basketSize/2, halfW-basketSize/2);
+  // basket.y = random(0 + margin, halfH - margin);
+
+  basket.x = 30;
+  basket.y = 300;
+
   scored = false;
 }
 
@@ -270,7 +274,7 @@ function drawBasket() {
     ball.vx = 0;
     ball.vy = 0;
     setTimeout(makeBasket, 700);
-    setTimeout(() => { ball.vx = random(-3, 3); }, 1000);
+    setTimeout(() => { ball.vx = random(-1, 1); }, 1000);
     setTimeout(() => { ball.vy = 2; }, 1000);
 
   }
