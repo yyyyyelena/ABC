@@ -80,17 +80,19 @@ io.on("connection", (socket) => { //socekt connection
   });
 
   //User clicks Ready
-  socket.on("userReady", () => {
-    if (!gameStarted) {
-      gameStarted = true;
-      io.emit("gameStarted"); 
-    }
-  });
+  // socket.on("userReady", () => {
+  //   if (!gameStarted) {
+  //     gameStarted = true;
+  //     io.emit("gameStarted"); 
+  //   }
+  // });
 
- socket.on("updateScore", (data) => {
-  score = data.score;
-  io.emit("scoreUpdate", { score });
-});
+//  socket.on("updateScore", (data) => {
+//   score = data.score;
+//   io.emit("scoreUpdate", { score });
+// });
+// I don't need a socket communication for the score 
+// because I assume there will only be one displayer
 
 
 
