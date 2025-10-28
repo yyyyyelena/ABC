@@ -87,7 +87,7 @@ function touchEnded() {
 
 function touchStarted() {
   if (touches.length === 2) {
-    touchesLoc = touches.map((t) => ({ x: t.x, y: t.y }));
+    touchesLoc = touches.map((t) => ({ x: t.x / width, y: t.y / height })); 
     console.log(touchesLoc);
   }
 }
