@@ -158,7 +158,7 @@ function handleBaseCollision() {
     if (vDotN < 0) {
       let bounce = 0.8; 
       ball.vx -= (1 + bounce) * vDotN * normal.x;
-      ball.vy -= (bounce) * vDotN * normal.y;
+      ball.vy -= (1+bounce) * vDotN * normal.y;
 
       ball.x += normal.x * (radius - dist + 0.9);
       ball.y += normal.y * (radius - dist + 0.9);
