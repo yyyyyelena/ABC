@@ -13,8 +13,9 @@ let teammates = {};
 let allPlayers = {};
 let blocks = []; // will come from server
 
-if (location.hostname.toLowerCase().startsWith('browsercircus')) {
-  socket = io({ path: "/YOURPATH-and-PORT/socket.io" });
+
+if (location.hostname.toLowerCase().startsWith('browsercircus') || location.hostname.toLowerCase().startsWith('www')) {
+  socket = io({ path: "/yelena/port-4290/socket.io" });
 } else {
   socket = io();
 }
