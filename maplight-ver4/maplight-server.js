@@ -16,7 +16,7 @@ const io = new Server(HTTPSserver);
 let players = {};
 let territories = {};
 
-// moved all your full territory data here:
+// territory is moved entirely to the server script
 const territoriesData = [
   {
     name: "campus",
@@ -51,9 +51,6 @@ const territoriesData = [
     ],
     trigger: { lat: 31.147768, lon: 121.481848},
     triggerRadius: 0.00018,
-    color: null, // starts white
-        cooldownEnd: 0
-
   },
 
        {
@@ -66,9 +63,6 @@ const territoriesData = [
     ],
     trigger: { lat: 31.150224, lon: 121.483034},
     triggerRadius: 0.00018,
-    color: null, // starts white
-        cooldownEnd: 0
-
   },
 
 {
@@ -81,9 +75,7 @@ const territoriesData = [
   ],
   trigger: {lat:31.151257, lon:121.481865},
   triggerRadius: 0.00018,
-  color: null,
-      cooldownEnd: 0
-
+ 
 },
 
 {
@@ -96,8 +88,6 @@ const territoriesData = [
   ],
   trigger: {lat:31.150917, lon:121.480985},
   triggerRadius: 0.00018,
-  color: null,
-      cooldownEnd: 0
 
 },
 
@@ -111,9 +101,7 @@ const territoriesData = [
   ],
   trigger:{lat:31.149421, lon:121.482675},
   triggerRadius: 0.00018,
-  color: null,
-      cooldownEnd: 0
-
+ 
 },
 
 {
@@ -126,8 +114,7 @@ const territoriesData = [
   ],
   trigger:{lat:31.148957, lon:121.479987},
   triggerRadius: 0.00018,
-  color: null,
-      cooldownEnd: 0
+
 
 },
 
@@ -141,8 +128,7 @@ const territoriesData = [
   ],
   trigger:{lat:31.149632, lon:121.480116},
   triggerRadius: 0.00018,
-  color: null,
-  cooldownEnd: 0
+ 
 },
 {
   name: "east2",
@@ -154,8 +140,7 @@ const territoriesData = [
   ],
   trigger:{lat:31.148865, lon:121.482573},
   triggerRadius: 0.00018,
-  color: null,
-  cooldownEnd: 0
+
 },
 {
   name: "idk",
@@ -167,8 +152,7 @@ const territoriesData = [
   ],
   trigger:{lat:31.152763, lon:121.481194},
   triggerRadius: 0.00018,
-  color: null,
-  cooldownEnd: 0
+ 
 },
 {
   name: "idk_second",
@@ -180,8 +164,7 @@ const territoriesData = [
   ],
   trigger:{lat:31.153764, lon:121.481612},
   triggerRadius: 0.00018,
-  color: null,
-  cooldownEnd: 0
+
 },
 {
   name: "idk_third",
@@ -193,8 +176,7 @@ const territoriesData = [
   ],
   trigger:{lat:31.153396, lon:121.479756},
   triggerRadius: 0.00018,
-  color: null,
-  cooldownEnd: 0
+
 },
 {
   name: "idk_fourth",
@@ -206,8 +188,7 @@ const territoriesData = [
   ],
   trigger:{lat:31.151009, lon:121.479774},
   triggerRadius: 0.00018,
-  color: null,
-  cooldownEnd: 0
+
 }
 
 

@@ -90,9 +90,11 @@ function updateTeamDisplay() {
   teamDisplay.style.backgroundColor = teamColor;
   document.getElementById("my-team-name").innerText = `Team ${capitalize(teamColor)}: `;
   document.getElementById("team-members").innerText =
-    Object.values(teammates).map(p => p.name).join(", ");
+  Object.values(teammates).map(p => p.name).join(", ");
 }
-function capitalize(str) { return str.charAt(0).toUpperCase() + str.slice(1); }
+// displaying team members joining
+
+
 
 function mapDistanceToPixels(distanceLatLon, lat) {
   let latPixel = myMap.latLngToPixel(lat, 0);
@@ -140,15 +142,15 @@ function draw() {
 function drawTrigger(block) {
   if (!myMap) return;
   let triggerPos = myMap.latLngToPixel(block.trigger.lat, block.trigger.lon);
-  let radiusPixels = mapDistanceToPixels(block.triggerRadius, block.trigger.lat);
+  // let radiusPixels = mapDistanceToPixels(block.triggerRadius, block.trigger.lat);
   push();
   noFill();
   let glow = sin(frameCount * 0.08) * 40 + 120;
-  stroke(0, glow, 0, 150);
-  strokeWeight(2);
-  circle(triggerPos.x, triggerPos.y, radiusPixels * 2);
+  // stroke(150, 0, 200, 150);
+  // strokeWeight(2);
+  // circle(triggerPos.x, triggerPos.y, radiusPixels * 2);
   noStroke();
-  fill(0, 255, 0, 180);
+  fill(180, 0, 255, 180);
   circle(triggerPos.x, triggerPos.y, 8 + sin(frameCount * 0.15) * 2);
   pop();
 }
