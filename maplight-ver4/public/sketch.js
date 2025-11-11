@@ -181,8 +181,8 @@ function drawBlock(block) {
 }
 
 function handleNewPosition(pos) {
-  if(pos.coords.accuracy > 10){
-    console.log("seems not accurate")
+  if(pos.coords.accuracy > 20){
+    console.log("seems not accurate", pos.coords.accuracy)
     return
   }
 
