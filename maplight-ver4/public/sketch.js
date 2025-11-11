@@ -185,6 +185,7 @@ function handleNewPosition(pos) {
     console.log("seems not accurate", pos.coords.accuracy)
     return
   }
+  console.log("accuracy", pos.coords.accuracy)
 
   let lonlat = fixForChineseMap(pos);
   currentLongitude = lonlat[0];
