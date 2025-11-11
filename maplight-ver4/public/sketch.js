@@ -181,6 +181,11 @@ function drawBlock(block) {
 }
 
 function handleNewPosition(pos) {
+  if(pos.coords.accuracy > 10){
+    console.log("seems not accurate")
+    return
+  }
+
   let lonlat = fixForChineseMap(pos);
   currentLongitude = lonlat[0];
   currentLatitude = lonlat[1];
