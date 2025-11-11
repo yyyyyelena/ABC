@@ -89,7 +89,7 @@ function updateTeamDisplay() {
   const teamDisplay = document.getElementById("team-display");
   teamDisplay.style.display = "flex";
   teamDisplay.style.backgroundColor = teamColor;
-  document.getElementById("my-team-name").innerText = `Team ${capitalize(teamColor)}: `;
+  document.getElementById("my-team-name").innerText = "team "+teamColor;
   document.getElementById("team-members").innerText =
   Object.values(teammates).map(p => p.name).join(", ");
 }
