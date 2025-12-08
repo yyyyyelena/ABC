@@ -20,16 +20,6 @@
     "userId": "u-miwrfyyp"
   },
   {
-    "id": 1764586177514,
-    "city": "BA",
-    "lat": 31.222472278974386,
-    "lon": 121.5011501312256,
-    "title": "random test",
-    "text": "please let the image disappear",
-    "imgURL": "uploads/1764586177433.png",
-    "userId": "u-miwrfyyp"
-  },
-  {
     "id": 1764589692744,
     "city": "BA",
     "lat": -34.59741244292415,
@@ -50,36 +40,6 @@
     "userId": "u-miwrfyyp"
   },
   {
-    "id": 1764593053676,
-    "city": "BA",
-    "lat": -34.603506002881325,
-    "lon": -58.38396549224854,
-    "title": "hi",
-    "text": "testing",
-    "imgURL": "uploads/1764593053656.png",
-    "userId": "u-miwrfyyp"
-  },
-  {
-    "id": 1764647277388,
-    "city": "SH",
-    "lat": -34.600927333523494,
-    "lon": -58.38546752929688,
-    "title": "tarfagsf",
-    "text": "afsg",
-    "imgURL": "uploads/1764647277383.png",
-    "userId": "u-miwrfyyp"
-  },
-  {
-    "id": 1764647789948,
-    "city": "SH",
-    "lat": 31.272388797564815,
-    "lon": 121.52561187744142,
-    "title": "testestes",
-    "text": "testr",
-    "imgURL": "uploads/1764647789939.png",
-    "userId": "u-miwrfyyp"
-  },
-  {
     "id": 1764651241108,
     "city": "NY",
     "lat": 40.69502952014397,
@@ -97,14 +57,6 @@
     "title": "55 Clark St.",
     "text": "Used to live here when i was in NY!",
     "imgURL": "uploads/1764651281639.png",
-    "userId": "u-miwrfyyp"
-  },
-  {
-    "city": "SH",
-    "lat": 31.14866827209935,
-    "lon": 121.48160219192506,
-    "title": "NYU Shanghai",
-    "text": "School :)\nnot much to be talked about but this is our school :)",
     "userId": "u-miwrfyyp"
   },
   {
@@ -216,16 +168,6 @@
     "title": "¡¡My Porteño Family!!!",
     "text": "my fam for 4 months :'')",
     "imgURL": "uploads/1765162860960.png",
-    "userId": "u-miwrfyyp"
-  },
-  {
-    "id": 1765175318448,
-    "city": "SH",
-    "lat": 31.15285361111038,
-    "lon": 121.48198708891869,
-    "title": "Tai koo li!",
-    "text": "The vegetarian restaurant in taikooli is always good :) but filled with people!",
-    "imgURL": "uploads/1765175318443.png",
     "userId": "u-miwrfyyp"
   }
 ]
