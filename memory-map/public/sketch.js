@@ -53,7 +53,7 @@ window.addEventListener('DOMContentLoaded', () => {
     // Toggle mode
     if (mode === 'browse') {
       mode = 'edit';
-      btn.textContent = 'browse 🤓';
+      btn.textContent = 'browse';
     } else {
       mode = 'browse';
       btn.textContent = 'join!📝';
@@ -245,14 +245,14 @@ function filterMemories() {
 }
 
 // mouse pressed, to either access an existing memory note or create a new one
-function mousePressed() {
+function touchStarted() {
   const menu = document.querySelector('.menu-bar');
   const rect = menu.getBoundingClientRect();
 
-  if (mouseX >= rect.left &&
-    mouseX <= rect.right &&
-    mouseY >= rect.top &&
-    mouseY <= rect.bottom) {
+  if (touches[0].x >= rect.left &&
+    touches[0].x<= rect.right &&
+    touches[0].y >= rect.top &&
+    touches[0].y <= rect.bottom) {
     return
   }
   let popup = document.getElementById('memory-popup');
@@ -268,7 +268,7 @@ function mousePressed() {
   for (let i = 0; i < currentMemories.length; i++) {
     let m = currentMemories[i];
     let pix = myMap.latLngToPixel(m.lat, m.lon);
-    let d = dist(mouseX, mouseY, pix.x, pix.y);
+    let d = dist(touches[0].x, touches[0].y, pix.x, pix.y);
     if (d < 15) {
       openMemory(m);
       return;  // if we clikc on existing dot, we stop this function (return) so we dont open the new memeory popup
@@ -277,7 +277,7 @@ function mousePressed() {
 
   // if no dot was clicked, treat it as a "New Memory" tap
   if (!isEditMode()) return;
-  let clickCoordinate = myMap.pixelToLatLng(mouseX, mouseY);
+  let clickCoordinate = myMap.pixelToLatLng(touches[0].x, touches[0].y);
   newMemoryLocation = {
     lat: clickCoordinate.lat,
     lon: clickCoordinate.lng
