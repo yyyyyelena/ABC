@@ -2,7 +2,7 @@
 body, html {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Fira Code', monospace;
   overflow: hidden;
 }
 .menu-bar {
@@ -14,7 +14,7 @@ body, html {
   gap: 15px;
   z-index: 9999;
   pointer-events: auto;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Fira Code', monospace;
 }
 
 .project-title {
@@ -60,7 +60,7 @@ body, html {
   padding: 8px 12px;     
   font-size: 10px;          
   font-weight: 600;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Fira Code', monospace;;
   color: #373c5c;
   background: rgba(212, 228, 240, 0.8);
   border: 2px solid #96b3d4;
@@ -152,7 +152,7 @@ body, html {
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
-  font-family: inherit;
+  font-family: 'Fira Code', monospace;
   box-sizing: border-box;
 }
 
