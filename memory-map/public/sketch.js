@@ -46,11 +46,37 @@ let shimmerDirection = 1;
 let heatLayer;
 
 let mode = 'browse'
-window.addEventListener('DOMContentLoaded', () => {
-  let btn = document.querySelector("#edit-or-browse-btn");
-  let locBtn = document.querySelector("#loc-btn")
+// window.addEventListener('DOMContentLoaded', () => {
+//   let btn = document.querySelector("#edit-or-browse-btn");
+//   let locBtn = document.querySelector("#loc-btn")
+//   btn.addEventListener('click', () => {
+//     // Toggle mode
+//     if (mode === 'browse') {
+//       mode = 'edit';
+//       btn.textContent = 'browse';
+//     } else {
+//       mode = 'browse';
+//       btn.textContent = 'join!📝';
+//     }
+
+//     // console.log("Mode changed:", mode);
+//   });
+
+//   locBtn.addEventListener('click', () => {
+//     showLocation = !showLocation;
+//     if (showLocation) {
+//       startGPS();
+//       locBtn.textContent = 'hide loc 📡';
+//     } else {
+//       locBtn.textContent = 'show loc 📍';
+//     }
+//   })
+// });
+
+window.addEventListener('load', () => {
+  const btn = document.querySelector("#edit-or-browse-btn");
+  if (!btn) return; 
   btn.addEventListener('click', () => {
-    // Toggle mode
     if (mode === 'browse') {
       mode = 'edit';
       btn.textContent = 'browse';
@@ -58,19 +84,20 @@ window.addEventListener('DOMContentLoaded', () => {
       mode = 'browse';
       btn.textContent = 'join!📝';
     }
-
-    // console.log("Mode changed:", mode);
   });
 
-  locBtn.addEventListener('click', () => {
-    showLocation = !showLocation;
-    if (showLocation) {
-      startGPS();
-      locBtn.textContent = 'hide loc 📡';
-    } else {
-      locBtn.textContent = 'show loc 📍';
-    }
-  })
+  const locBtn = document.querySelector("#loc-btn");
+  if (locBtn) {
+    locBtn.addEventListener('click', () => {
+      showLocation = !showLocation;
+      if (showLocation) {
+        startGPS();
+        locBtn.textContent = 'hide loc 📡';
+      } else {
+        locBtn.textContent = 'show loc 📍';
+      }
+    });
+  }
 });
 
 
