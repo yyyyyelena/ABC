@@ -202,8 +202,7 @@ const territoriesData = [
   ],
   trigger:{lat:31.148824, lon:121.478297},
   triggerRadius: 0.00018,
-  color: null,
-  cooldownEnd: 0
+
 },
 
 {
@@ -216,8 +215,7 @@ const territoriesData = [
   ],
   trigger:{lat:31.150541, lon:121.478313},
   triggerRadius: 0.00018,
-  color: null,
-  cooldownEnd: 0
+
 },
 
 {
@@ -230,8 +228,7 @@ const territoriesData = [
   ],
   trigger:{lat:31.148066, lon:121.477428},
   triggerRadius: 0.00018,
-  color: null,
-  cooldownEnd: 0
+
 },
 {
   name: "westwest4",
@@ -243,8 +240,7 @@ const territoriesData = [
   ],
   trigger:{lat:31.1505781, lon:121.477675},
   triggerRadius: 0.00018,
-  color: null,
-  cooldownEnd: 0
+
 },
 
 {
@@ -257,8 +253,7 @@ const territoriesData = [
   ],
   trigger:{lat:31.152331, lon:121.476956},
   triggerRadius: 0.00018,
-  color: null,
-  cooldownEnd: 0
+
 },
 
 {
@@ -271,8 +266,7 @@ const territoriesData = [
   ],
   trigger:{lat:31.152409, lon:121.479649},
   triggerRadius: 0.00018,
-  color: null,
-  cooldownEnd: 0
+
 },
 
 {
@@ -285,8 +279,7 @@ const territoriesData = [
   ],
   trigger:{lat:31.149535, lon:121.483710},
   triggerRadius: 0.00018,
-  color: null,
-  cooldownEnd: 0
+
 },
 
 {
@@ -299,8 +292,7 @@ const territoriesData = [
   ],
   trigger:{lat:31.146997, lon:121.484756},
   triggerRadius: 0.00018,
-  color: null,
-  cooldownEnd: 0
+
 },
 
 {
@@ -313,8 +305,7 @@ const territoriesData = [
   ],
   trigger:{lat:31.144325, lon:121.485410},
   triggerRadius: 0.00018,
-  color: null,
-  cooldownEnd: 0
+
 },
 
 {
@@ -327,8 +318,7 @@ const territoriesData = [
   ],
   trigger:{lat:31.152956, lon:121.474767},
   triggerRadius: 0.00018,
-  color: null,
-  cooldownEnd: 0
+
 },
 
 {
@@ -341,8 +331,7 @@ const territoriesData = [
   ],
   trigger:{lat:31.151652, lon:121.473255},
   triggerRadius: 0.00018,
-  color: null,
-  cooldownEnd: 0
+
 },
 
 {
@@ -355,8 +344,7 @@ const territoriesData = [
   ],
   trigger:{lat:31.153470, lon:121.469693},
   triggerRadius: 0.00018,
-  color: null,
-  cooldownEnd: 0
+
 },
 
 {
@@ -369,8 +357,7 @@ const territoriesData = [
   ],
   trigger:{lat:31.148401, lon:121.484316},
   triggerRadius: 0.00018,
-  color: null,
-  cooldownEnd: 0
+
 }
 
 

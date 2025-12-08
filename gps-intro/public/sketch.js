@@ -50,8 +50,6 @@ function draw() {
     // console.log(me)
 
   }
-  
-
 
 }
 
@@ -65,15 +63,6 @@ function touchStarted() {
   }
 }
 
-function touchMoved() {
-}
-
-function touchEnded() {
-}
-
-function windowResized(){
-  resizeCanvas(windowWidth, windowHeight);
-}
 
 //directly called from GPS listener whenever our location updates 
 function handleNewPosition(pos){
@@ -96,10 +85,9 @@ function handleNewPosition(pos){
     updateMapContent();
   }
   
-  socket.on("locationFromServer", function(data){
-    console.log("data from someone",data);
-    let someoneOnCanvas
-  })
+  // socket.on("locationFromServer", function(data){
+  //   // console.log("data from someone",data);
+  // })
 
 }
 

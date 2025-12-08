@@ -112,6 +112,7 @@ function draw() {
     myMap.overlay(canvas);
     myMap.onChange(updateMapContent);
     mapInit = true;
+    
   }
   if (!mapInit) return;
 
