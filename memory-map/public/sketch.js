@@ -273,8 +273,17 @@ function filterMemories() {
 function touchStarted() {
   const menu = document.querySelector('.menu-bar');
   const rect = menu.getBoundingClientRect();
+  const canvasRect = canvas.elt.getBoundingClientRect();
 
-  if (touches[0].x >= rect.left || touches[0].x<= rect.right || touches[0].y >= rect.top || touches[0].y <= rect.bottom) {
+  // const menuX = rect.left - canvasRect.left;
+  // const menuY = rect.top - canvasRect.top;
+  // const menuW = rect.width;
+  // const menuH = rect.height;
+
+  if (touches[0].x >= rect.left - canvasRect.left && 
+    touches[0].x<= rect.top - canvasRect.top+rect.width &&
+    touches[0].y >= rect.top - canvasRect.top &&
+    touches[0].y <= rect.top - canvasRect.top + rect.height) {
     return
   }
   let popup = document.getElementById('memory-popup');
