@@ -46,11 +46,37 @@ let shimmerDirection = 1;
 let heatLayer;
 
 let mode = 'browse'
-// window.addEventListener('DOMContentLoaded', () => {
-//   let btn = document.querySelector("#edit-or-browse-btn");
-//   let locBtn = document.querySelector("#loc-btn")
+window.addEventListener('DOMContentLoaded', () => {
+  let btn = document.querySelector("#edit-or-browse-btn");
+  let locBtn = document.querySelector("#loc-btn")
+  btn.addEventListener('click', () => {
+    // Toggle mode
+    if (mode === 'browse') {
+      mode = 'edit';
+      btn.textContent = 'browse!📖';
+    } else {
+      mode = 'browse';
+      btn.textContent = 'join!📝';
+    }
+
+    // console.log("Mode changed:", mode);
+  });
+
+  locBtn.addEventListener('click', () => {
+    showLocation = !showLocation;
+    if (showLocation) {
+      startGPS();
+      locBtn.textContent = 'hide loc 📡';
+    } else {
+      locBtn.textContent = 'show loc 📍';
+    }
+  })
+});
+
+// window.addEventListener('load', () => {
+//   const btn = document.querySelector("#edit-or-browse-btn");
+//   if (!btn) return; 
 //   btn.addEventListener('click', () => {
-//     // Toggle mode
 //     if (mode === 'browse') {
 //       mode = 'edit';
 //       btn.textContent = 'browse';
@@ -58,47 +84,20 @@ let mode = 'browse'
 //       mode = 'browse';
 //       btn.textContent = 'join!📝';
 //     }
-
-//     // console.log("Mode changed:", mode);
 //   });
-
-//   locBtn.addEventListener('click', () => {
-//     showLocation = !showLocation;
-//     if (showLocation) {
-//       startGPS();
-//       locBtn.textContent = 'hide loc 📡';
-//     } else {
-//       locBtn.textContent = 'show loc 📍';
-//     }
-//   })
+//   const locBtn = document.querySelector("#loc-btn");
+//   if (locBtn) {
+//     locBtn.addEventListener('click', () => {
+//       showLocation = !showLocation;
+//       if (showLocation) {
+//         startGPS();
+//         locBtn.textContent = 'hide loc 📡';
+//       } else {
+//         locBtn.textContent = 'show loc 📍';
+//       }
+//     });
+//   }
 // });
-
-window.addEventListener('load', () => {
-  const btn = document.querySelector("#edit-or-browse-btn");
-  if (!btn) return; 
-  btn.addEventListener('click', () => {
-    if (mode === 'browse') {
-      mode = 'edit';
-      btn.textContent = 'browse';
-    } else {
-      mode = 'browse';
-      btn.textContent = 'join!📝';
-    }
-  });
-
-  const locBtn = document.querySelector("#loc-btn");
-  if (locBtn) {
-    locBtn.addEventListener('click', () => {
-      showLocation = !showLocation;
-      if (showLocation) {
-        startGPS();
-        locBtn.textContent = 'hide loc 📡';
-      } else {
-        locBtn.textContent = 'show loc 📍';
-      }
-    });
-  }
-});
 
 
 function startGPS() {
@@ -271,15 +270,11 @@ function filterMemories() {
   // updateHeatmap();
 }
 
-// mouse pressed, to either access an existing memory note or create a new one
 function touchStarted() {
   const menu = document.querySelector('.menu-bar');
   const rect = menu.getBoundingClientRect();
 
-  if (touches[0].x >= rect.left &&
-    touches[0].x<= rect.right &&
-    touches[0].y >= rect.top &&
-    touches[0].y <= rect.bottom) {
+  if (touches[0].x >= rect.left || touches[0].x<= rect.right || touches[0].y >= rect.top || touches[0].y <= rect.bottom) {
     return
   }
   let popup = document.getElementById('memory-popup');
@@ -340,12 +335,7 @@ function openMemory(memory) {
     editBtn.style.display = "none";
   }
 
-  // document.getElementById("choose-emoji-btn").onclick = () => {
-  //   openEmojiPicker((emoji) => {
-  //     selectedEmoji = emoji;
-  //     document.getElementById("chosen-emoji-preview").textContent = emoji;
-  //   });
-  // };
+
 }
 
 function deleteMemory(id) {
@@ -458,30 +448,6 @@ function saveNewMemory() {
 }
 
 
-// function updateHeatmap() {
-//   if (!myMap || !myMap.map) return;
-
-//   let leafletMap = myMap.map;
-
-//   if (heatLayer) {
-//     leafletMap.removeLayer(heatLayer);
-//   }
-
-
-//   let heatData = currentMemories.map(m => [m.lat, m.lon, 0.5]); // 0.5 intensity
-
-// // add new heatLayer
-//   if (heatData.length > 0) {
-//     heatLayer = L.heatLayer(heatData, {
-//       // radius: 25, this is default value
-//       minOpacity:0.4,
-//       // blur: 15, this is default
-//       // maxZoom: 17
-//       gradient:{0.4: 'blue', 0.65: 'lime', 1: 'red'}
-//     }).addTo(leafletMap);
-
-// }
-// }
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);

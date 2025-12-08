@@ -71,8 +71,8 @@ body, html {
 } */
 
 .menu-selection button {
-  padding: 8px 12px;       /* smaller padding */
-  font-size: 9px;          /* slightly smaller font */
+  padding: 8px 12px;     
+  font-size: 10px;          
   font-weight: 600;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #5c4b37;
