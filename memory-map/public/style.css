@@ -1,114 +1,99 @@
+/* GLOBAL RESET */
 body, html {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  overflow: hidden; /* Prevents scrollbars on the full screen map */
+  overflow: hidden;
 }
-
-#requestOrientationButton{
-  position:fixed;
-  bottom:20px;
-  left:20px;
-}
-
+/* Menu Bar */
 .menu-bar {
   position: fixed;
   top: 20px;
   left: 20px;
-  width: 160px;
-
   display: flex;
   flex-direction: column;
-  gap: 18px;
-
+  gap: 15px;
   z-index: 9999;
-
   pointer-events: auto;
-}
-.menu-section-title {
-  font-size: 13px;
-  font-weight: 600;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #484440;
-  margin-bottom: 6px;
-  background: rgba(240, 228, 212, 0.8);
-  padding: 4px 10px;
-
-  border: 2px solid #d4b996;
-  border-radius: 9999px;
-
-  margin-bottom: 6px;
-  width: fit-content;
-
-  box-shadow: 2px 2px 6px rgba(92, 75, 55, 0.12);
 }
-.menu-section {
-  background: rgba(255, 178, 178, 0.15);
-  padding: 12px;
-  border-radius: 9999px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.menu button {
-  width: 100%;
-  padding: 8px 12px;
 
-  font-size: 13px;
-  font-weight: 600;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.project-title {
+  font-size: 24px;
+  font-weight: 700;
   color: #5c4b37;
-
-  background: rgba(240, 228, 212, 0.8);
-
+  background: rgba(240, 228, 212, 0.95);
+  padding: 12px 20px;
+  border-radius: 20px;
   border: 2px solid #d4b996;
-  border-radius: 9999px;
+  box-shadow: 3px 3px 10px rgba(92, 75, 55, 0.15);
+  text-align: center;
+  letter-spacing: 1px;
+}
 
+.menu-selection button {
+  width: fit-content;
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #5c4b37;
+  background: rgba(240, 228, 212, 0.9);
+  border: 2px solid #d4b996;
+  border-radius: 1000px;
   cursor: pointer;
   transition: 0.2s ease;
-
-  box-shadow: 2px 2px 6px rgba(92, 75, 55, 0.10);
+  box-shadow: 2px 2px 6px rgba(92, 75, 55, 0.1);
 }
-.menu button:hover {
- background: #e8d7c0;
+
+.menu-selection button:hover {
+  background: #e8d7c0;
   transform: scale(1.02);
 }
 
-.menu button:active {
-background: #d4b996;
+.menu-selection button:active {
+  background: #d4b996;
   color: #fff;
   border-color: #a67b5b;
   transform: scale(0.98);
 }
 
 
+.menu-section-title {
+  width: fit-content;
+  font-size: 12px;
+  font-weight: 600;
+  color: #5c4b37;
+  background: rgba(240, 228, 212, 0.9);
+  border: 2px solid #d4b996;
+  border-radius: 1000px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  box-shadow: 2px 2px 6px rgba(92, 75, 55, 0.1);
+}
+
 .main-wrapper {
   position: relative;
-  /* margin-left: 180px;  */
-  /* top: 0; */
   width: 100vw;
   height: 100vh;
   z-index: 1;
-  /* z-index is a CSS property that controls the stacking order of overlapping HTML elements, 
-  determining which element appears in front (higher value) or behind (lower value) on the z-axis */
 }
 
 .popup-hidden {
-  /* popup being hidden by default */
   display: none;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
+  width: 85%;
   max-width: 400px;
+  max-height: 80vh;
+  overflow-y: auto;
   background: white;
   padding: 20px;
   border: 2px solid black;
-  box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
-  z-index: 1000; 
-  text-align: center;
-  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  z-index: 2000;
+  border-radius: 12px;
 }
 
 .popup-close-btn {
@@ -117,7 +102,8 @@ background: #d4b996;
   background: #ff5555;
   color: white;
   border: none;
-  padding: 5px 10px;
+  padding: 6px 12px;
+  border-radius: 6px;
 }
 
 .popup-media img {
@@ -126,45 +112,7 @@ background: #d4b996;
   margin-top: 10px;
 }
 
-.note-area {
-  width: 100%;
-  margin-top: 10px;
-  padding: 5px;
-  box-sizing: border-box; /* Ensures padding doesn't break width */
-}
-
-.save-status {
-  color: green;
-  font-weight: bold;
-  display: none;
-  margin-left: 10px;
-}
-
-
-.popup-hidden {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  
-  width: 85%;        /* Wider on mobile */
-  max-width: 400px;
-  
-  /* CRITICAL FIX FOR MOBILE: */
-  max-height: 80vh;  /* Never be taller than 80% of screen */
-  overflow-y: auto;  /* Allow scrolling if content is too big */
-  
-  background: white;
-  padding: 20px;
-  border: 2px solid black;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-  z-index: 2000;     /* Very high z-index */
-  border-radius: 12px;
-  font-family: sans-serif;
-}
-
-/* Make the note section pop out visually */
+/* ADD NEW MEMORY */
 .note-section {
   background-color: #f0f0f0;
   padding: 15px;
@@ -177,60 +125,35 @@ background: #d4b996;
   width: 100%;
   margin-top: 10px;
   padding: 10px;
-  box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 16px; /* readable font size */
+  font-size: 16px;
   font-family: inherit;
+  box-sizing: border-box;
 }
 
 .save-btn {
-  margin-top: 10px;
+  margin-top: 12px;
   background-color: #4CAF50;
   color: white;
   border: none;
-  padding: 10px 15px;
-  border-radius: 4px;
-  font-size: 14px;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 16px;
   cursor: pointer;
   width: 100%;
 }
 
-
-.note-icon {
-  width: 40px;   
-  height: 40px;  
-  cursor: pointer;
-  margin-right: 10px;
-}
-
-.note-icon.selected {
-  border: 2px solid #007bff;
-  border-radius: 5px;
-}
-
-#memory-file-input{
+#memory-file-input {
   margin-bottom: 25px;
   font-size: 15px;
 }
 
-#popupImg{
+#popupImg {
   max-width: 100%;
 }
 
-
-.icon-button {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-}
-
-.icon-button img {
-  width: 40px;   
-  height: auto;
-}
-
+/* EMOJI PICKER */
 .emoji-picker {
   position: absolute;
   top: 50%;
@@ -255,24 +178,3 @@ background: #d4b996;
   cursor: pointer;
   text-align: center;
 }
-
-
-/* 按钮样式 */
-        /* .mode-selection {
-            background-color: #f0e4d4;
-            color: #5c4b37;
-            border: 2px solid #d4b996;
-            border-radius: 9999px; 
-            transition: all 0.2s ease;
-        }
-        .mode-selection:hover {
-            background-color: #e8d7c0;
-            transform: scale(1.02);
-        }
-        .mode-selection.active {
-            background-color: #d4b996;
-            color: #fff;
-            border-color: #a67b5b;
-        } */
-
-
