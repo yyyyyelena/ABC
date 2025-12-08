@@ -1,8 +1,8 @@
 {
-  "name": "Device Orientation P5",
+  "name": "Memory Map",
   "icons": [
     {
-      "src": "assets/512.png",
+      "src": "assets/appLogo.png",
       "type": "image/png",
       "sizes": "512x512"
     }

@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
 
 
   <link rel="manifest" href="manifest.json" />
@@ -57,7 +58,7 @@
     <div id="memory-popup" class="popup-hidden">
       <button class="popup-close-btn" onclick="closePopup()">X</button>
 
-      <h2 id="popup-title" style="margin-top:0;">Title</h2>
+      <h2 id="popup-title">Title</h2>
         <p id="popup-text">Description...</p>
         <div id="popup-content-area" class="popup-media"><img src="" id="popupImg" alt=""></div>
 
@@ -70,20 +71,20 @@
       <!-- creatw new memory -->
       <div id="new-memory-popup" class="popup-hidden">
         <button class="popup-close-btn" onclick="closeNewMemoryPopup()">X</button>
-        <h2 style="margin-top: 0;">📍 Add New Memory</h2>
+        <h2>📍 Add New Memory</h2>
         <div class="note-section">
-          <strong style="display:block; margin-bottom: 5px;">Title:</strong>
+          <strong>Title:</strong>
           <input type="text" id="new-memory-title" class="note-area" placeholder="Give your memory a title..."
             maxlength="40">
-          <strong style="display:block; margin-top: 10px; margin-bottom: 5px;">Your Note:</strong>
+          <strong  >Your Note:</strong>
           <textarea id="new-memory-text" class="note-area" rows="4"
             placeholder="Type your persistent memory here..."></textarea>
-          <strong style="display:block; margin-top: 10px; margin-bottom: 5px;">Your Image:</strong>
-          <input type="file" id="memory-file-input" accept="image/*" style="margin-top:10px;">
+          <strong  >Your Image:</strong>
+          <input type="file" id="memory-file-input" accept="image/*">
           <!-- <button id="choose-emoji-btn">Choose Emoji</button>
           <span id="chosen-emoji-preview" style="font-size: 24px;"></span> -->
         </div>
-        <button class="save-btn" style="background-color:#007bff;" onclick="saveNewMemory()">Create & Share</button>
+        <button class="save-btn" onclick="saveNewMemory()">Create & Share</button>
       </div>
 
       <!-- <div class="note-type-selector"> -->
