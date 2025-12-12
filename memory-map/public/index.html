@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" /> -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
 
   <link rel="manifest" href="manifest.json" />
@@ -12,7 +12,7 @@
   <title>memory map</title>
 
   <link rel="stylesheet" type="text/css" href="style.css">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" /> 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
   <script src="lib/p5.js"></script>
   <script src="lib/mappa.js" type="text/javascript"></script>
@@ -20,8 +20,9 @@
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script> -->
   <!-- <script src="lib/leaflet-heat.js"></script> -->
   <!-- <script src="lib/HeatLayer.js"></script> -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>  <script src="lib/leaflet-heat.js"></script>
-  
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="lib/leaflet-heat.js"></script>
+
   <script src="socket.io/socket.io.js"></script>
   <!-- <script src="lib/p5.sound.js"></script> -->
 
@@ -53,51 +54,51 @@
       <!-- <button id="edit-or-browse-btn">join!📝</button> -->
 
     </div>
+  </div>
 
 
     <div id="memory-popup" class="popup-hidden">
       <button class="popup-close-btn" onclick="closePopup()">X</button>
 
       <h2 id="popup-title">Title</h2>
-        <p id="popup-text">Description...</p>
-        <div id="popup-content-area" class="popup-media"><img src="" id="popupImg" alt=""></div>
+      <p id="popup-text">Description...</p>
+      <div id="popup-content-area" class="popup-media"><img src="" id="popupImg" alt=""></div>
 
-        <button id="delete-memory" class="popup-media"> delete note </button>
-        <button id="edit-memory" class="popup-media"> edit note </button>
-
-      </div>
-
-
-      <!-- creatw new memory -->
-      <div id="new-memory-popup" class="popup-hidden">
-        <button class="popup-close-btn" onclick="closeNewMemoryPopup()">X</button>
-        <h2>📍 Add New Memory</h2>
-        <div class="note-section">
-          <strong>Title:</strong>
-          <input type="text" id="new-memory-title" class="note-area" placeholder="Give your memory a title..."
-            maxlength="40">
-          <strong  >Your Note:</strong>
-          <textarea id="new-memory-text" class="note-area" rows="4"
-            placeholder="Type your persistent memory here..."></textarea>
-          <strong  >Your Image:</strong>
-          <input type="file" id="memory-file-input" accept="image/*">
-          <!-- <button id="choose-emoji-btn">Choose Emoji</button>
-          <span id="chosen-emoji-preview" style="font-size: 24px;"></span> -->
-        </div>
-        <button class="save-btn" onclick="saveNewMemory()">Create & Share</button>
-      </div>
-
-      <!-- <div class="note-type-selector"> -->
-      <!-- <strong>Select Note Type:</strong> -->
-      <!-- <img id="text-note-icon" src="icons/text.png" class="note-icon" alt ="Audio note" onclick ="selectNoteType ('audio')"> -->
-      <!-- <img id="audio-note-icon" src="icons/audio.png" class="note-icon" alt="Audio Note" -->
-      <!-- onclick="selectNoteType('audio')"> -->
-      <!-- <img id="visual-note-icon" src="icons/foto.png" class="note-icon" alt="Visual Note" -->
-      <!-- onclick="selectNoteType('visual')"> -->
+      <button id="delete-memory" class="popup-media"> delete note </button>
+      <button id="edit-memory" class="popup-media"> edit note </button>
 
     </div>
 
-  </div>
+
+    <!-- creatw new memory -->
+    <div id="new-memory-popup" class="popup-hidden">
+      <button class="popup-close-btn" onclick="closeNewMemoryPopup()">X</button>
+      <h2>📍 Add New Memory</h2>
+      <div class="note-section">
+        <strong>Title:</strong>
+        <input type="text" id="new-memory-title" class="note-area" placeholder="Give your memory a title..."
+          maxlength="40">
+        <strong>Your Note:</strong>
+        <textarea id="new-memory-text" class="note-area" rows="4"
+          placeholder="Type your persistent memory here..."></textarea>
+        <strong>Your Image:</strong>
+        <input type="file" id="memory-file-input" accept="image/*">
+        <!-- <button id="choose-emoji-btn">Choose Emoji</button>
+          <span id="chosen-emoji-preview" style="font-size: 24px;"></span> -->
+      </div>
+      <button class="save-btn" onclick="saveNewMemory()">Create & Share</button>
+    </div>
+
+    <!-- <div class="note-type-selector"> -->
+    <!-- <strong>Select Note Type:</strong> -->
+    <!-- <img id="text-note-icon" src="icons/text.png" class="note-icon" alt ="Audio note" onclick ="selectNoteType ('audio')"> -->
+    <!-- <img id="audio-note-icon" src="icons/audio.png" class="note-icon" alt="Audio Note" -->
+    <!-- onclick="selectNoteType('audio')"> -->
+    <!-- <img id="visual-note-icon" src="icons/foto.png" class="note-icon" alt="Visual Note" -->
+    <!-- onclick="selectNoteType('visual')"> -->
+
+
+  <!-- </div> -->
   <script src="requestGPS.js"></script>
   <script src="sketch.js"></script>
 </body>
