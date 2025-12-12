@@ -24,44 +24,24 @@ body, html {
   font-family: 'Fira Code', monospace;
 }
 
-.project-title {
-  font-size: 24px;
-  font-weight: 700;
-  color: #3b375c;
-  background: rgba(240, 228, 212, 0.95);
-  padding: 12px 20px;
-  border-radius: 20px;
-  border: 2px solid #d4b996;
-  box-shadow: 3px 3px 10px rgba(92, 75, 55, 0.15);
-  text-align: center;
+.note-for-user {
+  position: fixed;           
+  left: 0;                  
+  right: 0;                 
+  bottom: 8px;              
+  text-align: center;      
+
+  font-size: 14px;
+  font-family: 'Fira Code', monospace;
+  font-weight: 100;        
+
+  color: #373c5c;
   letter-spacing: 1px;
+
+  z-index: 9999;
+  pointer-events: none;      /* ensures it never blocks taps */
 }
 
-/* .menu-selection button {
-  width: fit-content;
-  padding: 8px 14px;
-  font-size: 12px;
-  font-weight: 600;
-  color: #5c4b37;
-  background: rgba(240, 228, 212, 0.9);
-  border: 2px solid #d4b996;
-  border-radius: 1000px;
-  cursor: pointer;
-  transition: 0.2s ease;
-  box-shadow: 2px 2px 6px rgba(92, 75, 55, 0.1);
-}
-
-.menu-selection button:hover {
-  background: #e8d7c0;
-  transform: scale(1.02);
-}
-
-.menu-selection button:active {
-  background: #d4b996;
-  color: #fff;
-  border-color: #a67b5b;
-  transform: scale(0.98);
-} */
 
 .menu-selection button {
   padding: 8px 12px;     
