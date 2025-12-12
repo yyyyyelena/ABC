@@ -43,24 +43,24 @@ let showLocation = false;
 let userLocation;
 let shimmer = 150;
 let shimmerDirection = 1;
-let heatLayer;
+let longPressTimer = null;
 
 let mode = 'browse'
 window.addEventListener('DOMContentLoaded', () => {
-  let btn = document.querySelector("#edit-or-browse-btn");
+  // let btn = document.querySelector("#edit-or-browse-btn");
   let locBtn = document.querySelector("#loc-btn")
-  btn.addEventListener('click', () => {
-    // Toggle mode
-    if (mode === 'browse') {
-      mode = 'edit';
-      btn.textContent = 'browse!📖';
-    } else {
-      mode = 'browse';
-      btn.textContent = 'join!📝';
-    }
+  // btn.addEventListener('click', () => {
+  //   // Toggle mode
+  //   if (mode === 'browse') {
+  //     mode = 'edit';
+  //     btn.textContent = 'browse!📖';
+  //   } else {
+  //     mode = 'browse';
+  //     btn.textContent = 'join!📝';
+  //   }
 
     // console.log("Mode changed:", mode);
-  });
+  // });
 
   locBtn.addEventListener('click', () => {
     showLocation = !showLocation;
@@ -116,7 +116,12 @@ function startGPS() {
   );
 }
 function handleNewPosition(pos) {
-  let lonlat = fixForChineseMap(pos);
+  // let lonlat = fixForChineseMap(pos);
+
+  let lonlat = [];
+  lonlat[1] = pos.coords.latitude;
+  lonlat[0]= pos.coords.longitude;
+
   userLocation = {
     lat: lonlat[1],
     lon: lonlat[0]
@@ -133,15 +138,23 @@ function isEditMode() {
 const CITY_CONFIG = {
   'BA': {
     lat: -34.6037, lng: -58.3816, zoom: 15,
-    style: "https://b.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png"
+    // style: "https://b.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png"
+    style: "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png	"
+
   },
   'SH': {
     lat: 31.2304, lng: 121.4737, zoom: 15,
-    style: 'https://webst01.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=6&x={x}&y={y}&z={z}'
+    // style: 'https://webst01.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=6&x={x}&y={y}&z={z}'
+    style: "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png	"
+
+    // style: "https://b.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png"
+
   },
   'NY': {
     lat: 40.747224, lng: -73.9900, zoom: 15,
-    style: "https://b.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png"
+    // style: "https://b.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png"
+    // style: "https://tiles.stadiamaps.com/tiles/stamen_toner/{z}/{x}/{y}.png"
+    style: "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png	"
   }
 };
 
@@ -223,6 +236,7 @@ function draw() {
   // display my loc
   if (showLocation && userLocation && myMap) {
     let p = myMap.latLngToPixel(userLocation.lat, userLocation.lon);
+    console.log(userLocation.lat, userLocation.lon);
 
     shimmer += shimmerDirection * 4;
     if (shimmer >= 255) shimmerDirection = -1;
@@ -244,6 +258,10 @@ function initMap() {
   }
 
   isChangingCity = false;
+
+   myMap.onChange(function(){
+    clearInterval(longPressTimer);
+   })
 }
 
 function changeCity(cityCode) {
@@ -271,27 +289,14 @@ function filterMemories() {
 }
 
 function touchStarted() {
-  const menu = document.querySelector('.menu-bar');
-  const rect = menu.getBoundingClientRect();
-  const canvasRect = canvas.elt.getBoundingClientRect();
-
-  // const menuX = rect.left - canvasRect.left;
-  // const menuY = rect.top - canvasRect.top;
-  // const menuW = rect.width;
-  // const menuH = rect.height;
-
-  if (touches[0].x >= rect.left - canvasRect.left && 
-    touches[0].x<= rect.top - canvasRect.top+rect.width &&
-    touches[0].y >= rect.top - canvasRect.top &&
-    touches[0].y <= rect.top - canvasRect.top + rect.height) {
-    return
-  }
   let popup = document.getElementById('memory-popup');
   let creationPopup = document.getElementById('new-memory-popup');
 
   //check if there is a pop-up displaying on the screen
   //if there is already a pop-up, stop running any following actions
-  if (popup.style.display === "block" || creationPopup.style.display === "block" || isChangingCity) {
+  if (popup.style.display === "block" || 
+    creationPopup.style.display === "block" || 
+    isChangingCity) {
     return;
   }
 
@@ -306,15 +311,25 @@ function touchStarted() {
     }
   }
 
-  // if no dot was clicked, treat it as a "New Memory" tap
-  if (!isEditMode()) return;
   let clickCoordinate = myMap.pixelToLatLng(touches[0].x, touches[0].y);
   newMemoryLocation = {
     lat: clickCoordinate.lat,
     lon: clickCoordinate.lng
   };
+  
+  if (longPressTimer) {
+    clearTimeout(longPressTimer);
+  }
 
-  openNewMemoryCreation();
+  longPressTimer = setTimeout(openNewMemoryCreation, 800);
+  // return false;
+
+}
+function touchEnded() {
+  if (longPressTimer) {
+    clearTimeout(longPressTimer);
+    longPressTimer = null;
+  }
 }
 
 //view existing notes 

@@ -4,6 +4,13 @@ body, html {
   padding: 0;
   font-family: 'Fira Code', monospace;
   overflow: hidden;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari, Chrome */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Standard syntax */
+  
 }
 .menu-bar {
   position: fixed;
