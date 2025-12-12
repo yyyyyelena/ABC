@@ -45,7 +45,7 @@ let shimmer = 150;
 let shimmerDirection = 1;
 let longPressTimer = null;
 
-let mode = 'browse'
+// let mode = 'browse'
 window.addEventListener('DOMContentLoaded', () => {
   // let btn = document.querySelector("#edit-or-browse-btn");
   let locBtn = document.querySelector("#loc-btn")
@@ -67,37 +67,15 @@ window.addEventListener('DOMContentLoaded', () => {
     if (showLocation) {
       startGPS();
       locBtn.textContent = 'hide loc 📡';
+  if (showLocation && myMap && myMap.map) {
+    myMap.map.setView([userLocation], 17);
+  }
     } else {
       locBtn.textContent = 'show loc 📍';
     }
   })
 });
 
-// window.addEventListener('load', () => {
-//   const btn = document.querySelector("#edit-or-browse-btn");
-//   if (!btn) return; 
-//   btn.addEventListener('click', () => {
-//     if (mode === 'browse') {
-//       mode = 'edit';
-//       btn.textContent = 'browse';
-//     } else {
-//       mode = 'browse';
-//       btn.textContent = 'join!📝';
-//     }
-//   });
-//   const locBtn = document.querySelector("#loc-btn");
-//   if (locBtn) {
-//     locBtn.addEventListener('click', () => {
-//       showLocation = !showLocation;
-//       if (showLocation) {
-//         startGPS();
-//         locBtn.textContent = 'hide loc 📡';
-//       } else {
-//         locBtn.textContent = 'show loc 📍';
-//       }
-//     });
-//   }
-// });
 
 
 function startGPS() {
@@ -126,12 +104,15 @@ function handleNewPosition(pos) {
     lat: lonlat[1],
     lon: lonlat[0]
   };
+  if (showLocation && myMap && myMap.map) {
+  myMap.map.setView([userLocation.lat, userLocation.lon], 17);
+}
   socket.emit("locationFromClient", userLocation);
 }
 
-function isEditMode() {
-  return mode === 'edit';
-}
+// function isEditMode() {
+//   return mode === 'edit';
+// }
 
 
 // City Configurations
@@ -155,7 +136,11 @@ const CITY_CONFIG = {
     // style: "https://b.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png"
     // style: "https://tiles.stadiamaps.com/tiles/stamen_toner/{z}/{x}/{y}.png"
     style: "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png	"
-  }
+  },
+  // 'user':{
+  //   lat:userLocation.lat, lng:userLocation.lon,
+  //   style: "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png	"
+  // },
 };
 
 let mappa_options = CITY_CONFIG['SH'];
@@ -236,7 +221,8 @@ function draw() {
   // display my loc
   if (showLocation && userLocation && myMap) {
     let p = myMap.latLngToPixel(userLocation.lat, userLocation.lon);
-    console.log(userLocation.lat, userLocation.lon);
+    // console.log(userLocation.lat, userLocation.lon);
+    // changeCity(user);
 
     shimmer += shimmerDirection * 4;
     if (shimmer >= 255) shimmerDirection = -1;
@@ -347,8 +333,9 @@ function openMemory(memory) {
   let deleteBtn = document.getElementById('delete-memory');
   let editBtn = document.getElementById('edit-memory');
 
-  if (isEditMode() && memory.userId === myIdentity) {
-    deleteBtn.style.display = "inline-block";
+  // if (isEditMode() && memory.userId === myIdentity) {
+  if (memory.userId === myIdentity) {
+  deleteBtn.style.display = "inline-block";
     editBtn.style.display = "inline-block";
 
     deleteBtn.onclick = () => deleteMemory(memory.id);
@@ -370,7 +357,7 @@ function deleteMemory(id) {
 }
 
 function editMemory(id) {
-  if (!isEditMode()) return;
+  // if (!isEditMode()) return;
   let memory = allMemories.find(m => m.id === id);
   if (!memory) return;
 
@@ -420,7 +407,7 @@ function closeNewMemoryPopup() {
 }
 
 function saveNewMemory() {
-  if (!isEditMode()) return;
+  // if (!isEditMode()) return;
   const title = document.getElementById('new-memory-title').value.trim();
   const text = document.getElementById('new-memory-text').value.trim();
   let imgFileBlob = input.files[0];
