@@ -357,7 +357,6 @@ function deleteMemory(id) {
 }
 
 function editMemory(id) {
-  // if (!isEditMode()) return;
   let memory = allMemories.find(m => m.id === id);
   if (!memory) return;
 
@@ -381,7 +380,6 @@ function closePopup() {
 
   currentOpenMemoryKey = null;
 }
-
 
 //creating new memory, to be shared with everyone
 function openNewMemoryCreation() {
